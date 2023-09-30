@@ -1,0 +1,4 @@
+[ZoneTransfer]
+ZoneId=3
+ReferrerUrl=https://nodejs.org/ko/download
+HostUrl=https://nodejs.org/dist/v18.18.0/node-v18.18.0.tar.gz
