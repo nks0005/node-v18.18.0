@@ -51,6 +51,10 @@ class Arguments {
     DCHECK_GE(length_, 0);
   }
 
+// --------------------Added--------------------
+  inline int smi_at(int index) const;
+// ---------------------End---------------------
+
   V8_INLINE Object operator[](int index) const {
     return Object(*address_of_arg_at(index));
   }

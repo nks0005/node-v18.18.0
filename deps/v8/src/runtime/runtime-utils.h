@@ -21,6 +21,17 @@ namespace internal {
 // In AMD-64 calling convention a struct of two pointers is returned in rdx:rax.
 // In Win64 calling convention, a struct of two pointers is returned in memory,
 // allocated by the caller, and passed as a pointer in a hidden first parameter.
+
+// --------------------Added--------------------
+#define CONVERT_ARG_HANDLE_CHECKED(Type, name, index) \
+  CHECK(args[index].Is##Type());                      \
+  Handle<Type> name = args.at<Type>(index);
+
+#define CONVERT_SMI_ARG_CHECKED(name, index) \
+  CHECK(args[index].IsSmi());                \
+  int name = args.smi_at(index);
+// ---------------------End---------------------
+
 #ifdef V8_HOST_ARCH_64_BIT
 struct ObjectPair {
   Address x;

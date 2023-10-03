@@ -14,6 +14,13 @@
 namespace v8 {
 namespace internal {
 
+// --------------------Added--------------------
+template <ArgumentsType T>
+int Arguments<T>::smi_at(int index) const {
+  return Smi::ToInt(Object(*address_of_arg_at(index)));
+}
+// ---------------------End---------------------
+
 template <ArgumentsType T>
 Arguments<T>::ChangeValueScope::ChangeValueScope(Isolate* isolate,
                                                  Arguments* args, int index,
